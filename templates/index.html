@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>resume Screening Tool</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .box { width: 500px; padding: 20px; background: #f2f2f2; border-radius: 10px; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 20px; background: black; color: white; border: none; cursor: pointer; }
+        .score-box { padding: 10px; background: lightgreen; border-radius: 5px; font-size: 20px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Resume Screening Tool</h2>
+    
+    <form method="POST" enctype="multipart/form-data">
+        <label>Job Description:</label>
+        <textarea name="jd" rows="4" required></textarea>
+
+        <label>Upload Resume (PDF/DOCX):</label>
+        <input type="file" name="resume" required>
+
+        <button type="submit">Check Match</button>
+    </form>
+
+    {% if score %}
+    <div class="score-box">
+        Match Score: <strong>{{ score }}%</strong>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
